@@ -1,0 +1,116 @@
+.search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #fff;
+  background: linear-gradient(-90deg, #190c1f, #341138);;
+  padding: 8px;
+  &__form{
+    margin-bottom: 32px;
+    display: flex;
+    &__user-input{
+      position: relative;
+      display: flex;
+      &__input{
+        background-color: #53376d;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        padding: 16px 32px 16px 16px;
+        color: #fff;
+        border-radius: 15px;
+        opacity: .5;
+        margin-right: 8px;
+        &::placeholder {
+          color: #fff;
+          opacity: .5;
+        }
+        &__clear-btn{
+          width: 16px;
+          fill: #fff;
+          position: absolute;
+          right: 20px;
+          top: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+    &__search-btn { 
+      background-color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 15px;
+      padding: 0 15px;
+      svg {
+        width: 16px;
+      }
+    }
+  }
+  &__results{
+    width: 100%;
+    max-width: 1600px;
+    &__list{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      @media(min-width:481px){
+        grid-template-columns: repeat(3,1fr);
+      }
+      @media(min-width:769px){
+        grid-template-columns: repeat(4,1fr);
+      }
+      @media(min-width:1025px){
+        grid-template-columns: repeat(6,1fr);
+      }
+      grid-auto-flow: dense;
+      grid-gap: 4px;
+      &__item{
+          list-style-type: none;
+          position: relative;
+          &__gif {
+            padding-top: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          &__overlay{
+            position: absolute;
+            top: 0;
+            background-color: rgba(83,55,109, .7);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s;
+            &:hover{
+              opacity: 1;
+            }
+            &__icon {
+              width: 16px;
+              fill: #fff;
+              cursor: pointer;
+              background-color: #1d0c23;
+              padding: 8px;
+              border-radius: 50%;
+              &:first-child{
+                margin-right: 4px;
+              }
+            }
+          }
+      }
+    }
+  }
+  &__no-results{
+    &__gif{
+      border-radius: 8px;
+      padding-top: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
