@@ -5,8 +5,8 @@ import gifService from './api/gifService';
 
 const App = () => {
   const [trendingGifs, setTrendingGifs] = useState([]);
-  const [searchGifs, setSearchGifs] = useState(localStorage.getItem("searchGifResults") ? JSON.parse(localStorage.getItem("searchGifResults")) : []);
-  const [searchTerm, setSearchTerm] = useState(localStorage.getItem("searchTerm") ? localStorage.getItem("searchTerm") : '',);
+  const [searchGifs, setSearchGifs] = useState(() => localStorage.getItem("searchGifResults") ? JSON.parse(localStorage.getItem("searchGifResults")) : []);
+  const [searchTerm, setSearchTerm] = useState(() => localStorage.getItem("searchTerm") ? localStorage.getItem("searchTerm") : '',);
   const [noResults, setNoResults] = useState(false);
 
   //Initialize App by fetching Trending Gifs and dispay them!
