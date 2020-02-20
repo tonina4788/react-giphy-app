@@ -13,14 +13,14 @@ const SearchForm = ({searchTerm, searchForGifs, clearSearch}) => {
         if (event.keyCode === 13 || event.key === 'Enter') {
             searchForGifs(searchInput)
         }
-    }) 
+    }, [searchForGifs, searchInput]) 
 
     //Clear input vaue and clear data on parent
     const clearSearchData = useCallback(() => {
         clearSearch();
         setSearchInput('')
         textInput.current.value = ""
-    }) 
+    }, [clearSearch]) 
     
     return (
         <div className="search__form">
